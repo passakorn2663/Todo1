@@ -22,16 +22,16 @@ class TodoList {
 @JsonSerializable()
 class TodoModel {
   final bool complete;
-  final int id;
+  final String id;
   final String title;
   final String detail;
 
-  TodoModel({this.complete = false, int id, this.title, this.detail = ''})
+  TodoModel({this.complete = false, String id, this.title, this.detail = ''})
       : this.id = id ?? Uuid().generateV4(),
         super();
   //ถูกสร้างด้วย UUid
 
-  TodoModel copyWith({bool complete, int id, String title, String detail}) {
+  TodoModel copyWith({bool complete, String id, String title, String detail}) {
     return TodoModel(
         complete: complete ?? this.complete,
         id: id ?? this.id,
@@ -63,7 +63,7 @@ Map<String, dynamic> _$TodoListToJson(TodoList instance) => <String, dynamic>{
 TodoModel _$TodoModelFromJson(Map<String, dynamic> json) {
   return TodoModel(
     complete: json['complete'] as bool,
-    id: json['id'] as int,
+    id: json['id'] as String,
     title: json['title'] as String,
     detail: json['detail'] as String,
   );

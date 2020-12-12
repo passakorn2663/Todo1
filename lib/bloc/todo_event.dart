@@ -5,7 +5,7 @@ abstract class TodoEvent {
   const TodoEvent();
 }
 
-class Load extends TodoEvent {} //ดึงข้อมูล จาก local storage
+class Load extends TodoEvent {}
 
 class Add extends TodoEvent {
   final Todo todo;
